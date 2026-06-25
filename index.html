@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOTICS CLUB UCE // Autonomous Innovation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Global Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff6b35',
+                            pink: '#ff4b8b',
+                            cyan: '#00f5ff',
+                            darkBg: '#09090b',
+                            panelBg: '#121215',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['monospace', 'Courier New', 'Courier']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between relative pt-6">
+
+    <!-- FULL PAGE CRYSTAL CLEAR BACKGROUND WITH PARALLAX -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div id="bg-parallax-wrap" class="w-full h-full scale-105 transition-transform duration-500 ease-out relative">
+            <img id="bg-image" src="assets/images/japanese_robot_bg.png" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: center 38%; filter: contrast(1.1) saturate(1.1) brightness(0.65);" alt="Futuristic Japanese Garden Background">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none"></div>
+        <div class="grid-bg"></div>
+    </div>
+
+    <!-- BIRD EMITTER LAYER -->
+    <div id="bird-container" class="fixed inset-0 z-4 pointer-events-none overflow-hidden"></div>
+
+    <!-- LEAF EMITTER LAYER -->
+    <div id="leaf-container" class="fixed inset-0 z-5 pointer-events-none overflow-hidden"></div>
+
+    <!-- FLOATING DYNAMIC ISLAND NAVBAR -->
+    <div class="sticky top-4 z-20 w-full max-w-6xl mx-auto px-4 pointer-events-none">
+        <header class="glass-nav border border-white/10 rounded-full px-6 md:px-8 py-3.5 flex items-center justify-between pointer-events-auto shadow-2xl relative">
+            <!-- Robotics Club UCE Logo for Mobile (Icon Only) -->
+            <a href="index.html" class="flex items-center lg:hidden gap-2">
+                <svg viewBox="0 0 100 100" class="h-10 w-10 text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="25" y="25" width="50" height="50" rx="6" transform="rotate(45 50 50)" stroke="currentColor" stroke-width="5" fill="none"/>
+                    <line x1="28" y1="28" x2="10" y2="10" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                    <circle cx="10" cy="10" r="5" fill="currentColor"/>
+                    <rect x="36" y="38" width="28" height="20" rx="4" fill="currentColor"/>
+                </svg>
+                <span class="font-mono text-xs font-bold text-white tracking-widest sm:hidden">UCE ROBOTICS</span>
+            </a>
+            
+            <!-- Robotics Club UCE Logo for Desktop/Tablet (Full Text) -->
+            <a href="index.html" class="hidden lg:flex items-center gap-2">
+                <svg viewBox="0 0 450 120" class="h-14 w-auto text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(10, 10)">
+                        <rect x="25" y="25" width="50" height="50" rx="6" transform="rotate(45 50 50)" stroke="currentColor" stroke-width="5" fill="none"/>
+                        <line x1="28" y1="28" x2="10" y2="10" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                        <circle cx="10" cy="10" r="5" fill="currentColor"/>
+                        <rect x="36" y="38" width="28" height="20" rx="4" fill="currentColor"/>
+                    </g>
+                    <text x="120" y="65" font-family="system-ui, sans-serif" font-size="44" font-weight="900" fill="currentColor" letter-spacing="4">ROBOTICS</text>
+                    <text x="120" y="95" font-family="monospace" font-size="18" font-weight="700" fill="#ff6b35" letter-spacing="6">CLUB | UCE</text>
+                </svg>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-[15px]">
+                <a href="about.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">About Us</a>
+                <a href="team.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
+                <a href="events.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
+                <a href="certificates.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
+                <a href="index.html#membership" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Membership</a>
+            </nav>
+
+            <!-- Instagram handle & Join Club Action -->
+            <div class="flex items-center gap-2 sm:gap-4 pointer-events-auto">
+                <a href="https://instagram.com/uce_robotics" target="_blank" class="hidden sm:flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span>@uce_robotics</span>
+                </a>
+                <a href="#membership" class="neu-button hidden sm:inline-flex">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Join Club</span>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none hover:text-brand-orange transition-colors p-2" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-4 right-4 mt-2 glass-nav rounded-2xl p-6 flex flex-col gap-4 font-semibold text-center pointer-events-auto border border-white/10 shadow-2xl">
+            <a href="about.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About Us</a>
+            <a href="team.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Team</a>
+            <a href="events.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Events</a>
+            <a href="certificates.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificate</a>
+            <a href="index.html#membership" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Membership</a>
+            
+            <div class="flex flex-col gap-3 pt-2 sm:hidden">
+                <a href="https://instagram.com/uce_robotics" target="_blank" class="flex items-center justify-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-4 py-2.5 rounded-full border border-white/10">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span>@uce_robotics</span>
+                </a>
+                <a href="#membership" class="mobile-nav-btn neu-button w-full">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Join Club</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN VERTICALLY SCROLLABLE CONTENT -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col space-y-32 my-12">
+
+        <!-- ================= HOME / HERO SECTION ================= -->
+        <section id="home" class="scroll-mt-28 py-20 min-h-[80vh] flex items-center grid grid-cols-1 lg:grid-cols-12 gap-12 relative active-section">
+            <!-- Left Info Block -->
+            <div class="lg:col-span-8 space-y-8">
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/15 rounded-full backdrop-blur-md shadow-lg">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-pink animate-pulse"></span>
+                    <span class="font-mono text-xs sm:text-sm font-bold text-brand-pink tracking-widest uppercase">UCE ROBOTICS LABORATORY STATION</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Don't just watch the future happen. <br>
+                    <span class="gradient-text-pink-orange font-mono">Build it.</span> <br>
+                    <span class="text-2xl sm:text-4xl font-bold text-slate-200 mt-2 block">Welcome to UCE Robotics.</span>
+                </h1>
+                <p class="text-slate-300 leading-relaxed max-w-xl text-sm sm:text-base glass-panel p-5 rounded-lg">
+                    Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
+                </p>
+                
+                <!-- Glassmorphic Button layout -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="events.html" class="px-6 py-3.5 glass-btn rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
+                        <span>Upcoming Activities</span>
+                    </a>
+                    <a href="#membership" class="px-6 py-3.5 glass-btn-pink rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
+                        <span>Get 4-Year Pass</span>
+                    </a>
+                </div>
+
+                <!-- Stats widget container -->
+                <div class="grid grid-cols-3 gap-6 pt-10 border-t border-brand-border font-mono max-w-lg">
+                    <div>
+                        <span class="text-3xl font-bold text-white block">500+</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Active Members</span>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-bold text-white block">98.4%</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">System Accuracy</span>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-bold text-white block">&lt;10ms</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Loop Latency</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MEMBERSHIP SECTION ================= -->
+        <section id="membership" class="scroll-mt-28 py-16 flex flex-col justify-center items-center text-center space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">05 / REGISTER MEMBERSHIP</span>
+                <h2 class="text-4xl font-extrabold text-white">Choose Robotics Club Membership</h2>
+                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg max-w-xl">
+                    Become a certified engineer of the UCE Robotics community. Unlock keycard access to the laboratory, components repository, and high-performance remote compute nodes.
+                </p>
+            </div>
+
+            <!-- Centered Uiverse 3D Membership Card -->
+            <div class="flex items-center justify-center py-6 w-full">
+                <div class="group relative w-80">
+                  <div
+                    class="relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-[1px] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-brand-pink/25"
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-b from-brand-pink to-brand-orange opacity-20"
+                    ></div>
+
+                    <div
+                      class="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-6"
+                    >
+                      <div
+                        class="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-brand-pink/20 to-brand-orange/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
+                      ></div>
+                      <div
+                        class="absolute -bottom-16 -right-16 h-32 w-32 rounded-full bg-gradient-to-br from-brand-orange/20 to-brand-pink/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
+                      ></div>
+
+                      <div
+                        class="absolute -right-[1px] -top-[1px] overflow-hidden rounded-tr-2xl"
+                      >
+                        <div
+                          class="absolute h-20 w-20 bg-gradient-to-r from-brand-pink to-brand-orange"
+                        ></div>
+                        <div class="absolute h-20 w-20 bg-slate-950/90"></div>
+                        <div
+                          class="absolute right-0 top-[22px] h-[2px] w-[56px] rotate-45 bg-gradient-to-r from-brand-pink to-brand-orange"
+                        ></div>
+                        <span
+                          class="absolute right-1 top-1 text-[10px] font-semibold text-white"
+                          >POPULAR</span
+                        >
+                      </div>
+
+                      <div class="relative text-left">
+                        <h3 class="text-sm font-medium uppercase tracking-wider text-brand-pink">
+                          Member Pass
+                        </h3>
+                        <div class="mt-2 flex items-baseline gap-2">
+                          <span class="text-3xl font-bold text-white">₹150</span>
+                          <span class="text-sm text-slate-400">/ 4 years</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-400">
+                          Become a certified engineer of the UCE Robotics community.
+                        </p>
+                      </div>
+
+                      <div class="relative mt-6 space-y-4 text-left">
+                        <div class="flex items-start gap-3">
+                          <div
+                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
+                          >
+                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
+                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                            </svg>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium text-white">Unlimited Lab Projects</p>
+                            <p class="text-xs text-slate-400">Create as many as you need</p>
+                          </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                          <div
+                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
+                          >
+                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
+                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                            </svg>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium text-white">Advanced Sensor Access</p>
+                            <p class="text-xs text-slate-400">Detailed insights and reports</p>
+                          </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                          <div
+                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
+                          >
+                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
+                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                            </svg>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium text-white">High-Performance Compute</p>
+                            <p class="text-xs text-slate-400">Use remote nodes and resources</p>
+                          </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                          <div
+                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
+                          >
+                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
+                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                            </svg>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium text-white">24/7 Mentorship Support</p>
+                            <p class="text-xs text-slate-400">Get help from lead operators</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="relative mt-8">
+                        <button
+                          onclick="processPayment()"
+                          class="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-brand-pink to-brand-orange p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
+                        >
+                          <div
+                            class="relative rounded-xl bg-slate-950/50 px-4 py-3 transition-colors group-hover/btn:bg-transparent"
+                          >
+                            <span class="relative flex items-center justify-center gap-2">
+                              Join Club
+                              <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1">
+                                <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                              </svg>
+                            </span>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div class="mt-4 flex items-center justify-center gap-2">
+                        <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-slate-400">
+                          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                        </svg>
+                        <span class="text-xs font-medium text-slate-400">4-Year University Member Access</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <span class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">₹150 / 4-Year University member fee</span>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/10 py-12 border-t border-brand-border/40 text-slate-500 text-xs font-mono relative z-10 mt-auto backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <svg viewBox="0 0 450 120" class="h-12 w-auto text-white/50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(10, 10)">
+                        <rect x="25" y="25" width="50" height="50" rx="6" transform="rotate(45 50 50)" stroke="currentColor" stroke-width="5" fill="none"/>
+                        <rect x="36" y="38" width="28" height="20" rx="4" fill="currentColor"/>
+                    </g>
+                    <text x="120" y="65" font-family="system-ui, sans-serif" font-size="44" font-weight="900" fill="currentColor" letter-spacing="4">ROBOTICS</text>
+                    <text x="120" y="95" font-family="monospace" font-size="18" font-weight="700" fill="#ff6b35" letter-spacing="6">CLUB | UCE</text>
+                </svg>
+            </div>
+            <div>
+                <span>&copy; 2026 UCE ROBOTICS CLUB. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST POPUP -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-orange text-white text-xs font-mono rounded px-6 py-4 hidden flex items-center gap-3 shadow-2xl transition-all duration-300">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Global Javascript Helper -->
+    <script src="js/main.js"></script>
+    <script>
+        // Payment Processing simulation
+        function processPayment() {
+            showToast("Redirecting to payment gateway...");
+            setTimeout(() => {
+                showToast("Payment Successful! Welcome to the UCE Robotics Club.");
+                window.location.hash = "home";
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
