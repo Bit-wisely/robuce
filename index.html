@@ -96,11 +96,11 @@
 
             <!-- Navigation Links -->
             <nav class="hidden lg:flex items-center gap-8 font-semibold text-[15px]">
-                <a href="about.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">About Us</a>
-                <a href="team.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
+                <a href="about.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Subsystem Architecture</a>
+                <a href="team.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Operators Grid</a>
                 <a href="events.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
-                <a href="certificates.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
-                <a href="index.html#membership" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Membership</a>
+                <a href="certificates.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Telemetry Verification</a>
+                <a href="index.html#membership" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Membership Grid</a>
             </nav>
 
             <!-- Instagram handle & Join Club Action -->
@@ -122,11 +122,11 @@
 
         <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="absolute top-full left-4 right-4 mt-2 glass-nav rounded-2xl p-6 flex flex-col gap-4 font-semibold text-center pointer-events-auto border border-white/10 shadow-2xl">
-            <a href="about.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">About Us</a>
-            <a href="team.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Team</a>
+            <a href="about.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Subsystem Architecture</a>
+            <a href="team.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Operators Grid</a>
             <a href="events.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Events</a>
-            <a href="certificates.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificate</a>
-            <a href="index.html#membership" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Membership</a>
+            <a href="certificates.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Telemetry Verification</a>
+            <a href="index.html#membership" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Membership Grid</a>
             
             <div class="flex flex-col gap-3 pt-2 sm:hidden">
                 <a href="https://instagram.com/uce_robotics" target="_blank" class="flex items-center justify-center instagram-glass-btn">
@@ -150,14 +150,14 @@
         <section id="home" class="scroll-mt-28 py-10 flex flex-col justify-center items-start space-y-6 relative active-section">
             <!-- Left Info Block -->
             <div class="space-y-6 max-w-4xl">
-                <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/15 rounded-full backdrop-blur-md shadow-lg">
+                <div class="hidden sm:inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/15 rounded-full backdrop-blur-md shadow-lg">
                     <span class="w-2.5 h-2.5 rounded-full bg-brand-pink animate-pulse"></span>
                     <span class="font-mono text-xs sm:text-sm font-bold text-brand-pink tracking-widest uppercase">UCE ROBOTICS LABORATORY STATION</span>
                 </div>
                 <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
                     Don't just watch the future happen. <br>
                     <span class="gradient-text-pink-orange font-mono">Build it.</span> <br>
-                    <span class="text-2xl sm:text-4xl font-bold text-slate-200 mt-2 block">Welcome to UCE Robotics.</span>
+                    <span class="hidden sm:block text-2xl sm:text-4xl font-bold text-slate-200 mt-2">Welcome to UCE Robotics.</span>
                 </h1>
                 <p class="text-slate-300 leading-relaxed max-w-xl text-sm sm:text-base">
                     Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
@@ -503,7 +503,7 @@
                 setTimeout(() => {
                     if (loaderText) loaderText.innerText = "// CONFIGURING TELEMETRY GRID...";
                 }, 500);
-            }, 500); // Loader active for .5 seconds
+            }, 1000); // Loader active for 1 second
         }
     </script>
 </body>
