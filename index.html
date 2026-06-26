@@ -39,9 +39,9 @@
     <!-- FULL PAGE CRYSTAL CLEAR BACKGROUND WITH PARALLAX -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div id="bg-parallax-wrap" class="w-full h-full scale-105 transition-transform duration-500 ease-out relative">
-            <img id="bg-image" src="assets/images/japanese_robot_bg.png" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: center 38%; filter: contrast(1.1) saturate(1.1) brightness(0.65);" alt="Futuristic Japanese Garden Background">
+            <img id="bg-image" src="assets/images/japanese_robot_bg.png" class="absolute inset-0 w-full h-full object-cover opacity-85 bg-animated" style="object-position: center 38%; filter: contrast(1.1) saturate(1.1) brightness(0.65);" alt="Futuristic Japanese Garden Background">
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/35 pointer-events-none"></div>
         <div class="grid-bg"></div>
     </div>
 
@@ -118,21 +118,23 @@
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span>@uce_robotics</span>
                 </a>
-                <a href="#membership" class="mobile-nav-btn neu-button w-full">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <span>Join Club</span>
-                </a>
+                <div class="button-wrap btn-neutral w-full">
+                    <a href="#membership" class="w-full">
+                        <span><i class="fa-solid fa-credit-card"></i> Join Club</span>
+                    </a>
+                    <div class="button-shadow"></div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- MAIN VERTICALLY SCROLLABLE CONTENT -->
-    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col space-y-32 my-12">
+    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col space-y-20 my-6">
 
         <!-- ================= HOME / HERO SECTION ================= -->
-        <section id="home" class="scroll-mt-28 py-20 min-h-[80vh] flex items-center grid grid-cols-1 lg:grid-cols-12 gap-12 relative active-section">
+        <section id="home" class="scroll-mt-28 py-10 flex flex-col justify-center items-start space-y-6 relative active-section">
             <!-- Left Info Block -->
-            <div class="lg:col-span-8 space-y-8">
+            <div class="space-y-6 max-w-4xl">
                 <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/15 rounded-full backdrop-blur-md shadow-lg">
                     <span class="w-2.5 h-2.5 rounded-full bg-brand-pink animate-pulse"></span>
                     <span class="font-mono text-xs sm:text-sm font-bold text-brand-pink tracking-widest uppercase">UCE ROBOTICS LABORATORY STATION</span>
@@ -142,45 +144,51 @@
                     <span class="gradient-text-pink-orange font-mono">Build it.</span> <br>
                     <span class="text-2xl sm:text-4xl font-bold text-slate-200 mt-2 block">Welcome to UCE Robotics.</span>
                 </h1>
-                <p class="text-slate-300 leading-relaxed max-w-xl text-sm sm:text-base glass-panel p-5 rounded-lg">
+                <p class="text-slate-300 leading-relaxed max-w-xl text-sm sm:text-base">
                     Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
                 </p>
                 
                 <!-- Glassmorphic Button layout -->
                 <div class="flex flex-wrap items-center gap-4 pt-2">
-                    <a href="events.html" class="px-6 py-3.5 glass-btn rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
-                        <span>Upcoming Activities</span>
-                    </a>
-                    <a href="#membership" class="px-6 py-3.5 glass-btn-pink rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
-                        <span>Get 4-Year Pass</span>
-                    </a>
+                    <div class="button-wrap btn-pink">
+                        <button onclick="window.location.href='events.html'">
+                            <span>Upcoming Activities</span>
+                        </button>
+                        <div class="button-shadow"></div>
+                    </div>
+                    <div class="button-wrap btn-orange">
+                        <button onclick="window.location.href='#membership'">
+                            <span>Get 4-Year Pass</span>
+                        </button>
+                        <div class="button-shadow"></div>
+                    </div>
                 </div>
 
                 <!-- Stats widget container -->
                 <div class="grid grid-cols-3 gap-6 pt-10 border-t border-brand-border font-mono max-w-lg">
                     <div>
-                        <span class="text-3xl font-bold text-white block">500+</span>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Active Members</span>
+                        <span class="text-3xl font-bold text-white block">15+</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Workshops & Bootcamps Conducted</span>
                     </div>
                     <div>
-                        <span class="text-3xl font-bold text-white block">98.4%</span>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">System Accuracy</span>
+                        <span class="text-3xl font-bold text-white block">5+</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Annual Flagship Events / Hackathons</span>
                     </div>
                     <div>
-                        <span class="text-3xl font-bold text-white block">&lt;10ms</span>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Loop Latency</span>
+                        <span class="text-3xl font-bold text-white block">250+</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Certificates Issued This Year</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ================= MEMBERSHIP SECTION ================= -->
-        <section id="membership" class="scroll-mt-28 py-16 flex flex-col justify-center items-center text-center space-y-12">
+        <section id="membership" class="scroll-mt-28 py-12 flex flex-col justify-center items-center text-center space-y-10 active-section">
             <div class="max-w-3xl space-y-4">
                 <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">05 / REGISTER MEMBERSHIP</span>
                 <h2 class="text-4xl font-extrabold text-white">Choose Robotics Club Membership</h2>
-                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg max-w-xl">
-                    Become a certified engineer of the UCE Robotics community. Unlock keycard access to the laboratory, components repository, and high-performance remote compute nodes.
+                <p class="text-slate-300 leading-relaxed max-w-xl mx-auto">
+                    Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
                 </p>
             </div>
 
@@ -188,14 +196,10 @@
             <div class="flex items-center justify-center py-6 w-full">
                 <div class="group relative w-80">
                   <div
-                    class="relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-[1px] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-brand-pink/25"
+                    class="relative overflow-hidden rounded-2xl bg-[#24242b] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-brand-pink/25 border border-white/20"
                   >
                     <div
-                      class="absolute inset-0 bg-gradient-to-b from-brand-pink to-brand-orange opacity-20"
-                    ></div>
-
-                    <div
-                      class="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-6"
+                      class="relative rounded-2xl bg-[#24242b] p-6"
                     >
                       <div
                         class="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-brand-pink/20 to-brand-orange/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
@@ -221,15 +225,15 @@
                       </div>
 
                       <div class="relative text-left">
-                        <h3 class="text-sm font-medium uppercase tracking-wider text-brand-pink">
-                          Member Pass
+                        <h3 class="text-base font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-brand-pink via-brand-orange to-[#ff8e53] drop-shadow-[0_0_12px_rgba(255,75,139,0.95)]">
+                          MEMBER PASS
                         </h3>
-                        <div class="mt-2 flex items-baseline gap-2">
-                          <span class="text-3xl font-bold text-white">₹150</span>
-                          <span class="text-sm text-slate-400">/ 4 years</span>
+                        <div class="mt-3 flex items-baseline gap-2">
+                          <span class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00f5ff] via-white to-brand-cyan drop-shadow-[0_0_15px_rgba(0,245,255,0.95)]">₹150</span>
+                          <span class="text-xs font-mono font-bold text-white tracking-wider">/ 4 YEARS</span>
                         </div>
-                        <p class="mt-2 text-sm text-slate-400">
-                          Become a certified engineer of the UCE Robotics community.
+                        <p class="mt-3 text-xs text-slate-300 font-mono leading-relaxed">
+                          Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
                         </p>
                       </div>
 
@@ -294,7 +298,7 @@
                       <div class="relative mt-8">
                         <button
                           onclick="processPayment()"
-                          class="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-brand-pink to-brand-orange p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
+                          class="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-brand-orange to-[#ff8e53] p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
                         >
                           <div
                             class="relative rounded-xl bg-slate-950/50 px-4 py-3 transition-colors group-hover/btn:bg-transparent"
@@ -349,6 +353,7 @@
         <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
         <span id="toast-message"></span>
     </div>
+
 
     <!-- Global Javascript Helper -->
     <script src="js/main.js"></script>

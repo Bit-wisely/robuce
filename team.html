@@ -39,9 +39,9 @@
     <!-- FULL PAGE CRYSTAL CLEAR BACKGROUND WITH PARALLAX -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div id="bg-parallax-wrap" class="w-full h-full scale-105 transition-transform duration-500 ease-out relative">
-            <img id="bg-image" src="assets/images/japanese_robot_bg.png" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: center 38%; filter: contrast(1.1) saturate(1.1) brightness(0.65);" alt="Futuristic Japanese Garden Background">
+            <img id="bg-image" src="assets/images/japanese_robot_bg.png" class="absolute inset-0 w-full h-full object-cover opacity-85 bg-animated" style="object-position: center 38%; filter: contrast(1.1) saturate(1.1) brightness(0.65);" alt="Futuristic Japanese Garden Background">
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/35 pointer-events-none"></div>
         <div class="grid-bg"></div>
     </div>
 
@@ -118,10 +118,12 @@
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span>@uce_robotics</span>
                 </a>
-                <a href="index.html#membership" class="mobile-nav-btn neu-button w-full">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <span>Join Club</span>
-                </a>
+                <div class="button-wrap btn-neutral w-full">
+                    <a href="index.html#membership" class="w-full">
+                        <span><i class="fa-solid fa-credit-card"></i> Join Club</span>
+                    </a>
+                    <div class="button-shadow"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -134,7 +136,7 @@
             <div class="max-w-3xl space-y-4">
                 <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">02 / LAB OPERATORS</span>
                 <h2 class="text-4xl font-extrabold text-white">Meet the System Architects</h2>
-                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg">
+                <p class="text-slate-300 leading-relaxed">
                     Our student leaders oversee physical laboratory workspaces, coordinate project clusters, and mentor incoming engineering apprentices.
                 </p>
             </div>
@@ -207,6 +209,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- TOAST POPUP -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-orange text-white text-xs font-mono rounded px-6 py-4 hidden flex items-center gap-3 shadow-2xl transition-all duration-300">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+        <span id="toast-message"></span>
+    </div>
+
 
     <!-- Global Javascript Helper -->
     <script src="js/main.js"></script>
