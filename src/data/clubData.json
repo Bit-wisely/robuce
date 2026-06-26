@@ -1,0 +1,160 @@
+{
+  "clubName": "Robotics Club UCE",
+  "labStation": "UCE ROBOTICS LABORATORY STATION",
+  "tagline": "Don't just watch the future happen. Build it.",
+  "welcomeTitle": "Welcome to UCE Robotics.",
+  "welcomeDescription": "Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.",
+  "stats": [
+    {
+      "value": "15+",
+      "label": "Workshops & Bootcamps Conducted"
+    },
+    {
+      "value": "5+",
+      "label": "Annual Flagship Events / Hackathons"
+    },
+    {
+      "value": "250+",
+      "label": "Certificates Issued This Year"
+    }
+  ],
+  "membership": {
+    "title": "Choose Robotics Club Membership",
+    "description": "Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.",
+    "passType": "MEMBER PASS",
+    "price": "₹150",
+    "period": "4 YEARS",
+    "disclaimer": "₹150 / 4-Year University member fee",
+    "perks": [
+      {
+        "title": "Unlimited Lab Projects",
+        "desc": "Create as many as you need"
+      },
+      {
+        "title": "Advanced Sensor Access",
+        "desc": "Detailed insights and reports"
+      },
+      {
+        "title": "High-Performance Compute",
+        "desc": "Use remote nodes and resources"
+      },
+      {
+        "title": "24/7 Mentorship Support",
+        "desc": "Get help from lead operators"
+      }
+    ]
+  },
+  "pillars": [
+    {
+      "icon": "microchip",
+      "title": "Hardware Systems",
+      "desc": "Design custom printed circuit boards (PCBs), prototype high-frequency sensory interfaces, and deploy low-latency microcontrollers."
+    },
+    {
+      "icon": "code",
+      "title": "Autonomous Control",
+      "desc": "Implement real-time sensor fusion filter matrices, Robot Operating System (ROS) telemetry node configurations, and neural perception."
+    },
+    {
+      "icon": "bezier-curve",
+      "title": "Mechanical Modeling",
+      "desc": "Create advanced 3D CAD schematics, perform stress tests under simulation engines, and fabricate components with 3D print units."
+    }
+  ],
+  "team": [
+    {
+      "name": "Aravind Sharma",
+      "role": "Club President",
+      "icon": "astronaut",
+      "expertise": "Embedded C++, ROS2 Architecture, PCB Design",
+      "themeColor": "pink"
+    },
+    {
+      "name": "Meera Nair",
+      "role": "Software Lead",
+      "icon": "ninja",
+      "expertise": "OpenCV, Lidar Mapping, Python Core",
+      "themeColor": "cyan"
+    },
+    {
+      "name": "Rohan Das",
+      "role": "Hardware Lead",
+      "icon": "tie",
+      "expertise": "CAD Design, CNC Machining, Actuators",
+      "themeColor": "orange"
+    },
+    {
+      "name": "Dr. K. Raghavan",
+      "role": "Faculty Mentor",
+      "icon": "graduation-cap",
+      "expertise": "Swarm Robotics & Deep Reinforcement Learning",
+      "themeColor": "slate"
+    }
+  ],
+  "upcomingEvents": [
+    {
+      "id": "UCE-ROB-1407",
+      "title": "ROS2 & ESP32",
+      "type": "Workshop",
+      "subtitle": "Microcontrollers interface tutorial",
+      "date": "JULY 14, 2026",
+      "location": "Lab room 304",
+      "colorTheme": "pink",
+      "admitNum": "01"
+    },
+    {
+      "id": "UCE-ROB-0208",
+      "title": "Navigation",
+      "type": "Hackathon",
+      "subtitle": "Auto-navigation simulator trial",
+      "date": "AUG 02, 2026",
+      "location": "UCE Main Hall",
+      "colorTheme": "cyan",
+      "admitNum": "02"
+    },
+    {
+      "id": "UCE-ROB-1009",
+      "title": "Exhibition",
+      "type": "Symposium",
+      "subtitle": "Robotics annual hardware show",
+      "date": "SEP 10, 2026",
+      "location": "Campus Plaza",
+      "colorTheme": "orange",
+      "admitNum": "03"
+    }
+  ],
+  "pastEvents": [
+    {
+      "id": "PAST-001",
+      "title": "Autonomous Maze Solver Competition",
+      "date": "MARCH 22, 2026",
+      "category": "Competition",
+      "image": null,
+      "description": "Custom micromouse robots navigating a physical 16x16 grid maze autonomously using infrared ranging sensors."
+    },
+    {
+      "id": "PAST-002",
+      "title": "Drone Assembly & Telemetry Workshop",
+      "date": "FEBRUARY 05, 2026",
+      "category": "Workshop",
+      "image": "/assets/images/past_drone_event.jpg",
+      "description": "Hands-on assembly of quadcopters and configuring real-time telemetry systems over ArduPilot firmware."
+    },
+    {
+      "id": "PAST-003",
+      "title": "Swarm Robotics Demonstration",
+      "date": "JANUARY 18, 2026",
+      "category": "Exhibition",
+      "image": null,
+      "description": "Coordinated mesh networking of 10 micro-rovers performing distributed consensus-driven path alignment."
+    },
+    {
+      "id": "PAST-004",
+      "title": "IoT Edge Compute Seminar",
+      "date": "NOVEMBER 12, 2025",
+      "category": "Seminar",
+      "image": "/assets/images/past_iot_event.jpg",
+      "description": "Deploying lightweight TensorFlow Lite models on Raspberry Pi compute modules for micro-level object recognition."
+    }
+  ]
+}
