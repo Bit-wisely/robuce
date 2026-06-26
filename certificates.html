@@ -36,6 +36,9 @@
 </head>
 <body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between relative pt-6">
 
+    <!-- BACKDROP OVERLAY FOR MOBILE MENU -->
+    <div id="menu-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-15 opacity-0 pointer-events-none transition-all duration-300"></div>
+
     <!-- FULL PAGE CRYSTAL CLEAR BACKGROUND WITH PARALLAX -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div id="bg-parallax-wrap" class="w-full h-full scale-105 transition-transform duration-500 ease-out relative">
@@ -57,7 +60,6 @@
             <!-- Robotics Club UCE Logo for Mobile -->
             <a href="index.html" class="flex items-center lg:hidden gap-2">
                 <img src="assets/images/logo.png" class="h-10 w-auto object-contain" alt="Robotics Club UCE Logo">
-                <span class="font-mono text-xs font-bold text-white tracking-widest sm:hidden">UCE ROBOTICS</span>
             </a>
             
             <!-- Robotics Club UCE Logo for Desktop/Tablet -->

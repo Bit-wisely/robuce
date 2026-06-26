@@ -205,6 +205,7 @@ function initBirds() {
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
+const menuBackdrop = document.getElementById('menu-backdrop');
 
 if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
@@ -212,9 +213,11 @@ if (mobileMenuBtn && mobileMenu) {
         if (!isActive) {
             mobileMenu.classList.add('active');
             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+            if (menuBackdrop) menuBackdrop.classList.add('active-dim');
         } else {
             mobileMenu.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            if (menuBackdrop) menuBackdrop.classList.remove('active-dim');
         }
     });
 
@@ -222,8 +225,17 @@ if (mobileMenuBtn && mobileMenu) {
         btn.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            if (menuBackdrop) menuBackdrop.classList.remove('active-dim');
         });
     });
+
+    if (menuBackdrop) {
+        menuBackdrop.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            menuBackdrop.classList.remove('active-dim');
+        });
+    }
 }
 
 // Automatically highlight navbar based on page pathname
