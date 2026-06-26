@@ -39,33 +39,6 @@
     <!-- BACKDROP OVERLAY FOR MOBILE MENU -->
     <div id="menu-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-15 opacity-0 pointer-events-none transition-all duration-300"></div>
 
-    <!-- FUTURISTIC PAGE PRELOADER -->
-    <div id="page-loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#09090b] text-white transition-opacity duration-500">
-        <!-- SVG Bicycle Loader -->
-        <svg class="loader" viewBox="0 0 150 90" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <!-- Tires -->
-                <circle class="loader_tire" cx="35" cy="65" r="20" stroke-dasharray="125.66" />
-                <circle class="loader_tire" cx="115" cy="65" r="20" stroke-dasharray="125.66" />
-                <!-- Spokes -->
-                <path class="loader_spokes" d="M35 65 L35 45 M35 65 L35 85 M35 65 L15 65 M35 65 L55 65" stroke-dasharray="31.416" />
-                <path class="loader_spokes" d="M115 65 L115 45 M115 65 L115 85 M115 65 L95 65 M115 65 L135 65" stroke-dasharray="31.416" />
-                <!-- Frame / Body -->
-                <path class="loader_body" d="M35 65 L65 65 L82 43 L52 43 L35 65 M65 65 L52 43" stroke-dasharray="79" />
-                <!-- Seat -->
-                <path class="loader_seat" d="M52 43 L52 35 M47 35 L57 35" stroke-dasharray="5" />
-                <!-- Handlebars / Fork -->
-                <path class="loader_front" d="M115 65 L90 28" stroke-dasharray="19" />
-                <path class="loader_handlebars" d="M90 28 L82 28 M90 28 L94 22" stroke-dasharray="10" />
-                <!-- Pedals / Crank -->
-                <g class="loader_pedals-spin" transform="translate(65, 65)">
-                    <path class="loader_pedals" d="M0 0 L0 -15 M0 0 L0 15" stroke-dasharray="25.133" />
-                </g>
-            </g>
-        </svg>
-        <span id="loader-text" class="text-xs font-mono tracking-widest text-slate-400 mt-4 uppercase animate-pulse">// CONFIGURING TELEMETRY GRID...</span>
-    </div>
-
     <!-- FULL PAGE CRYSTAL CLEAR BACKGROUND WITH PARALLAX -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div id="bg-parallax-wrap" class="w-full h-full scale-105 transition-transform duration-500 ease-out relative">
@@ -147,299 +120,147 @@
     <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col space-y-16 my-12">
 
         <!-- ================= EVENTS SECTION ================= -->
-        <section id="events" class="scroll-mt-28 py-8 flex flex-col justify-center space-y-12 active-section">
-            <!-- UPCOMING EVENTS -->
-            <div class="space-y-12">
-                <div class="max-w-3xl space-y-4">
-                    <span class="text-xs font-mono text-brand-pink uppercase tracking-widest block">03 / EVENT ACCESS PASSES</span>
-                    <h2 class="text-4xl font-extrabold text-white">Upcoming Events & Workshops</h2>
-                    <p class="text-slate-300 leading-relaxed">
-                        Claim your digital laboratory access pass. Hover over the tickets to experience 3D perspective rotations.
-                    </p>
-                </div>
-
-                <!-- Event tickets layout - centered on mobile via justify-items-center and items-center -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl justify-center items-center justify-items-center">
-                    <!-- Ticket 1 -->
-                    <div class="ticket-wrapper ticket-brand-pink w-full max-w-sm">
-                        <div class="ticket">
-                            <div class="t-main">
-                                <div class="t-content">
-                                    <div class="t-header">
-                                        <div class="t-logo">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                            </svg>
-                                            <span>ROB_UCE</span>
-                                        </div>
-                                        <div class="t-type">Workshop</div>
-                                    </div>
-                                    <h3 class="t-title">ROS2 & ESP32</h3>
-                                    <p class="t-subtitle">Microcontrollers interface tutorial</p>
-                                    <div class="t-details">
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Date</span>
-                                            <span class="t-value">JULY 14, 2026</span>
-                                        </div>
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Location</span>
-                                            <span class="t-value">Lab room 304</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t-perforation">
-                                <span class="t-perf-line"></span>
-                            </div>
-                            <div class="t-stub">
-                                <div class="t-barcode-container">
-                                    <div class="t-barcode"></div>
-                                    <div class="t-barcode-id">UCE-ROB-1407</div>
-                                </div>
-                                <div class="t-admit">
-                                    <span class="t-admit-text">Admit</span>
-                                    <span class="t-admit-num">01</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ticket 2 -->
-                    <div class="ticket-wrapper ticket-brand-cyan w-full max-w-sm">
-                        <div class="ticket">
-                            <div class="t-main">
-                                <div class="t-content">
-                                    <div class="t-header">
-                                        <div class="t-logo">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                            </svg>
-                                            <span>ROB_UCE</span>
-                                        </div>
-                                        <div class="t-type">Hackathon</div>
-                                    </div>
-                                    <h3 class="t-title">Navigation</h3>
-                                    <p class="t-subtitle">Auto-navigation simulator trial</p>
-                                    <div class="t-details">
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Date</span>
-                                            <span class="t-value">AUG 02, 2026</span>
-                                        </div>
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Location</span>
-                                            <span class="t-value">UCE Main Hall</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t-perforation">
-                                <span class="t-perf-line"></span>
-                            </div>
-                            <div class="t-stub">
-                                <div class="t-barcode-container">
-                                    <div class="t-barcode"></div>
-                                    <div class="t-barcode-id">UCE-ROB-0208</div>
-                                </div>
-                                <div class="t-admit">
-                                    <span class="t-admit-text">Admit</span>
-                                    <span class="t-admit-num">02</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ticket 3 -->
-                    <div class="ticket-wrapper ticket-brand-orange w-full max-w-sm">
-                        <div class="ticket">
-                            <div class="t-main">
-                                <div class="t-content">
-                                    <div class="t-header">
-                                        <div class="t-logo">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                            </svg>
-                                            <span>ROB_UCE</span>
-                                        </div>
-                                        <div class="t-type">Symposium</div>
-                                    </div>
-                                    <h3 class="t-title">Exhibition</h3>
-                                    <p class="t-subtitle">Robotics annual hardware show</p>
-                                    <div class="t-details">
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Date</span>
-                                            <span class="t-value">SEP 10, 2026</span>
-                                        </div>
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Location</span>
-                                            <span class="t-value">Campus Plaza</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t-perforation">
-                                <span class="t-perf-line"></span>
-                            </div>
-                            <div class="t-stub">
-                                <div class="t-barcode-container">
-                                    <div class="t-barcode"></div>
-                                    <div class="t-barcode-id">UCE-ROB-1009</div>
-                                </div>
-                                <div class="t-admit">
-                                    <span class="t-admit-text">Admit</span>
-                                    <span class="t-admit-num">03</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <section id="events" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">03 / EVENT ACCESS PASSES</span>
+                <h2 class="text-4xl font-extrabold text-white">Upcoming Events & Workshops</h2>
+                <p class="text-slate-300 leading-relaxed">
+                    Claim your digital laboratory access pass. Hover over the tickets to experience 3D perspective rotations.
+                </p>
             </div>
 
-            <!-- ARCHIVED OPERATIONS -->
-            <div class="space-y-12 pt-8 border-t border-white/5">
-                <div class="max-w-3xl space-y-4">
-                    <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">04 / CORE ARCHIVES</span>
-                    <h2 class="text-4xl font-extrabold text-white">Archived Operations (Previous Events)</h2>
-                    <p class="text-slate-300 leading-relaxed">
-                        Review successful hardware deployments. Click on any operation ticket below to extract telemetry files, detailed descriptions, and physical photo captures.
-                    </p>
+            <!-- Event tickets layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+                <!-- Ticket 1 -->
+                <div class="ticket-wrapper ticket-brand-pink">
+                    <div class="ticket">
+                        <div class="t-main">
+                            <div class="t-content">
+                                <div class="t-header">
+                                    <div class="t-logo">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                                        </svg>
+                                        <span>ROB_UCE</span>
+                                    </div>
+                                    <div class="t-type">Workshop</div>
+                                </div>
+                                <h3 class="t-title">ROS2 & ESP32</h3>
+                                <p class="t-subtitle">Microcontrollers interface tutorial</p>
+                                <div class="t-details">
+                                    <div class="t-detail-item">
+                                        <span class="t-label">Date</span>
+                                        <span class="t-value">JULY 14, 2026</span>
+                                    </div>
+                                    <div class="t-detail-item">
+                                        <span class="t-label">Location</span>
+                                        <span class="t-value">Lab room 304</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="t-perforation">
+                            <span class="t-perf-line"></span>
+                        </div>
+                        <div class="t-stub">
+                            <div class="t-barcode-container">
+                                <div class="t-barcode"></div>
+                                <div class="t-barcode-id">UCE-ROB-1407</div>
+                            </div>
+                            <div class="t-admit">
+                                <span class="t-admit-text">Admit</span>
+                                <span class="t-admit-num">01</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Event tickets layout centered on mobile -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl justify-center items-center justify-items-center">
-                    <!-- Ticket Archive 1 -->
-                    <div onclick="openPreviousEventModal('maze_solver')" class="ticket-wrapper ticket-brand-pink w-full max-w-sm cursor-pointer hover:scale-[1.03] transition-transform duration-300">
-                        <div class="ticket">
-                            <div class="t-main">
-                                <div class="t-content">
-                                    <div class="t-header">
-                                        <div class="t-logo">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                            </svg>
-                                            <span>ROB_UCE</span>
-                                        </div>
-                                        <div class="t-type">Competition</div>
+                <!-- Ticket 2 -->
+                <div class="ticket-wrapper ticket-brand-cyan">
+                    <div class="ticket">
+                        <div class="t-main">
+                            <div class="t-content">
+                                <div class="t-header">
+                                    <div class="t-logo">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                                        </svg>
+                                        <span>ROB_UCE</span>
                                     </div>
-                                    <h3 class="t-title">Maze Solver</h3>
-                                    <p class="t-subtitle">Autonomous micromouse navigation</p>
-                                    <div class="t-details">
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Date</span>
-                                            <span class="t-value">MAR 18, 2026</span>
-                                        </div>
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Division</span>
-                                            <span class="t-value">Core AI Systems</span>
-                                        </div>
+                                    <div class="t-type">Hackathon</div>
+                                </div>
+                                <h3 class="t-title">Navigation</h3>
+                                <p class="t-subtitle">Auto-navigation simulator trial</p>
+                                <div class="t-details">
+                                    <div class="t-detail-item">
+                                        <span class="t-label">Date</span>
+                                        <span class="t-value">AUG 02, 2026</span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="t-perforation">
-                                <span class="t-perf-line"></span>
-                            </div>
-                            <div class="t-stub">
-                                <div class="t-barcode-container">
-                                    <div class="t-barcode"></div>
-                                    <div class="t-barcode-id">ARC-ROB-1803</div>
-                                </div>
-                                <div class="t-admit">
-                                    <span class="t-admit-text">Log</span>
-                                    <span class="t-admit-num">A1</span>
+                                    <div class="t-detail-item">
+                                        <span class="t-label">Location</span>
+                                        <span class="t-value">UCE Main Hall</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Ticket Archive 2 -->
-                    <div onclick="openPreviousEventModal('vr_room')" class="ticket-wrapper ticket-brand-cyan w-full max-w-sm cursor-pointer hover:scale-[1.03] transition-transform duration-300">
-                        <div class="ticket">
-                            <div class="t-main">
-                                <div class="t-content">
-                                    <div class="t-header">
-                                        <div class="t-logo">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                            </svg>
-                                            <span>ROB_UCE</span>
-                                        </div>
-                                        <div class="t-type">Workshop</div>
-                                    </div>
-                                    <h3 class="t-title">VR Room</h3>
-                                    <p class="t-subtitle">Cybernetic system interfaces</p>
-                                    <div class="t-details">
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Date</span>
-                                            <span class="t-value">APR 10, 2026</span>
-                                        </div>
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Division</span>
-                                            <span class="t-value">Interactive UI</span>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="t-perforation">
+                            <span class="t-perf-line"></span>
+                        </div>
+                        <div class="t-stub">
+                            <div class="t-barcode-container">
+                                <div class="t-barcode"></div>
+                                <div class="t-barcode-id">UCE-ROB-0208</div>
                             </div>
-                            <div class="t-perforation">
-                                <span class="t-perf-line"></span>
-                            </div>
-                            <div class="t-stub">
-                                <div class="t-barcode-container">
-                                    <div class="t-barcode"></div>
-                                    <div class="t-barcode-id">ARC-ROB-1004</div>
-                                </div>
-                                <div class="t-admit">
-                                    <span class="t-admit-text">Log</span>
-                                    <span class="t-admit-num">A2</span>
-                                </div>
+                            <div class="t-admit">
+                                <span class="t-admit-text">Admit</span>
+                                <span class="t-admit-num">02</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Ticket Archive 3 -->
-                    <div onclick="openPreviousEventModal('robot_arm')" class="ticket-wrapper ticket-brand-orange w-full max-w-sm cursor-pointer hover:scale-[1.03] transition-transform duration-300">
-                        <div class="ticket">
-                            <div class="t-main">
-                                <div class="t-content">
-                                    <div class="t-header">
-                                        <div class="t-logo">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                            </svg>
-                                            <span>ROB_UCE</span>
-                                        </div>
-                                        <div class="t-type">Exhibition</div>
+                <!-- Ticket 3 -->
+                <div class="ticket-wrapper ticket-brand-orange">
+                    <div class="ticket">
+                        <div class="t-main">
+                            <div class="t-content">
+                                <div class="t-header">
+                                    <div class="t-logo">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                                        </svg>
+                                        <span>ROB_UCE</span>
                                     </div>
-                                    <h3 class="t-title">Robotic Arm</h3>
-                                    <p class="t-subtitle">Kinematic servo arm controller</p>
-                                    <div class="t-details">
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Date</span>
-                                            <span class="t-value">MAY 05, 2026</span>
-                                        </div>
-                                        <div class="t-detail-item">
-                                            <span class="t-label">Division</span>
-                                            <span class="t-value">Kinematics</span>
-                                        </div>
+                                    <div class="t-type">Symposium</div>
+                                </div>
+                                <h3 class="t-title">Exhibition</h3>
+                                <p class="t-subtitle">Robotics annual hardware show</p>
+                                <div class="t-details">
+                                    <div class="t-detail-item">
+                                        <span class="t-label">Date</span>
+                                        <span class="t-value">SEP 10, 2026</span>
+                                    </div>
+                                    <div class="t-detail-item">
+                                        <span class="t-label">Location</span>
+                                        <span class="t-value">Campus Plaza</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="t-perforation">
-                                <span class="t-perf-line"></span>
+                        </div>
+                        <div class="t-perforation">
+                            <span class="t-perf-line"></span>
+                        </div>
+                        <div class="t-stub">
+                            <div class="t-barcode-container">
+                                <div class="t-barcode"></div>
+                                <div class="t-barcode-id">UCE-ROB-1009</div>
                             </div>
-                            <div class="t-stub">
-                                <div class="t-barcode-container">
-                                    <div class="t-barcode"></div>
-                                    <div class="t-barcode-id">ARC-ROB-0505</div>
-                                </div>
-                                <div class="t-admit">
-                                    <span class="t-admit-text">Log</span>
-                                    <span class="t-admit-num">A3</span>
-                                </div>
+                            <div class="t-admit">
+                                <span class="t-admit-text">Admit</span>
+                                <span class="t-admit-num">03</span>
                             </div>
                         </div>
                     </div>
@@ -447,53 +268,6 @@
             </div>
         </section>
     </main>
-
-    <!-- ARCHIVED OPERATION DETAILS MODAL -->
-    <div id="event-details-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
-        <div class="relative w-full max-w-2xl glass-panel shadow-2xl overflow-hidden border border-white/20 rounded-2xl flex flex-col max-h-[90vh]">
-            <div class="bg-black/40 px-6 py-4 border-b border-white/10 flex items-center justify-between font-mono text-xs text-white">
-                <span class="font-bold tracking-wider">// ARCHIVED TELEMETRY RECORD</span>
-                <button onclick="closePreviousEventModal()" class="text-slate-400 hover:text-white transition-colors text-lg p-1">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            
-            <div class="p-6 overflow-y-auto space-y-6 flex-1">
-                <!-- Modal Banner Image - Dummy blank area -->
-                <div class="relative w-full h-48 sm:h-64 rounded-xl overflow-hidden border border-white/10 bg-slate-900/60 flex items-center justify-center">
-                    <div class="text-center space-y-2">
-                        <i class="fa-solid fa-image text-slate-600 text-4xl"></i>
-                        <span class="text-xs font-mono text-slate-500 block">[ IMAGE ARCHIVE DECRYPTED ]</span>
-                    </div>
-                </div>
-
-                <div class="space-y-3">
-                    <span id="modal-event-tag" class="text-xs font-mono px-3 py-1 bg-white/5 border border-white/10 rounded-full text-brand-orange uppercase inline-block"></span>
-                    <h3 id="modal-event-title" class="text-2xl font-bold text-white tracking-tight"></h3>
-                    <p id="modal-event-date" class="text-xs font-mono text-slate-400"></p>
-                </div>
-
-                <p id="modal-event-description" class="text-slate-300 text-sm leading-relaxed font-sans"></p>
-                
-                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/5 font-mono text-xs">
-                    <div>
-                        <span class="text-slate-400 block uppercase mb-1">Subsystem Unit</span>
-                        <span id="modal-event-subsystem" class="text-white font-bold"></span>
-                    </div>
-                    <div>
-                        <span class="text-slate-400 block uppercase mb-1">Grid Status</span>
-                        <span class="text-brand-cyan font-bold"><i class="fa-solid fa-circle-check"></i> DEPLOYED_COMPLETED</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-black/20 px-6 py-4 border-t border-white/10 flex justify-end">
-                <button onclick="closePreviousEventModal()" class="glass-button py-2 px-6">
-                    Close Manifest
-                </button>
-            </div>
-        </div>
-    </div>
 
     <!-- FOOTER -->
     <footer class="bg-black/10 py-12 border-t border-brand-border/40 text-slate-500 text-xs font-mono relative z-10 mt-auto backdrop-blur-md">
@@ -520,59 +294,8 @@
         <span id="toast-message"></span>
     </div>
 
-    <!-- Modal script dataset and trigger logic -->
-    <script>
-        const previousEventsData = {
-            maze_solver: {
-                title: "Operation Maze Solver",
-                tag: "Autonomous Competition",
-                date: "MARCH 18, 2026",
-                subsystem: "Core Artificial Intelligence Node",
-                description: "Our micromouse rover deployed complex flood-fill pathfinding matrix heuristics to navigate grid structures under 15 seconds. Engineers optimized infrared transceiver telemetry nodes, motor controller ticks, and differential steering matrices to achieve maximum angular velocity precision."
-            },
-            vr_room: {
-                title: "Interactive VR Simulation Room",
-                tag: "UI/UX Laboratory Workshop",
-                date: "APRIL 10, 2026",
-                subsystem: "Virtual Interface & Graphics Core",
-                description: "Apprentices experienced multi-agent simulation control meshes inside immersive headset environments. The workshop covered three-dimensional digital twin representations, real-time spatial telemetry streaming pipelines, and coordinate translation mappings between simulation space and actual physical hardware actuators."
-            },
-            robot_arm: {
-                title: "Operation Robotic Arm",
-                tag: "Kinematics & Fabrication Exhibition",
-                date: "MAY 05, 2026",
-                subsystem: "Precision Kinematics & Mechanical Array",
-                description: "A demonstration of 6-degree-of-freedom robotic arms executing path pick-and-place maneuvers. Participants loaded geometric constraints into inverse kinematics matrix solvers, tuned PID tuning variables for absolute feedback loop damping, and successfully fabricated 3D physical models."
-            }
-        };
 
-        function openPreviousEventModal(eventId) {
-            const data = previousEventsData[eventId];
-            if (!data) return;
-
-            document.getElementById('modal-event-tag').innerText = data.tag;
-            document.getElementById('modal-event-title').innerText = data.title;
-            document.getElementById('modal-event-date').innerText = `DEPLOYMENT DATE: ${data.date}`;
-            document.getElementById('modal-event-description').innerText = data.description;
-            document.getElementById('modal-event-subsystem').innerText = data.subsystem;
-
-            const modal = document.getElementById('event-details-modal');
-            if (modal) {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        function closePreviousEventModal() {
-            const modal = document.getElementById('event-details-modal');
-            if (modal) {
-                modal.classList.add('opacity-0', 'pointer-events-none');
-            }
-        }
-        
-        // Close modal when clicking outside contents
-        document.getElementById('event-details-modal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('event-details-modal')) {
-                closePreviousEventModal();
-            }
-        });
-    </script>
+    <!-- Global Javascript Helper -->
+    <script src="js/main.js"></script>
+</body>
+</html>
