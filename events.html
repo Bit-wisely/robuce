@@ -311,7 +311,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl justify-center items-center justify-items-center">
                     <!-- Ticket Archive 1 -->
                     <div onclick="openPreviousEventModal('maze_solver')" class="ticket-wrapper ticket-brand-pink w-full max-w-sm cursor-pointer hover:scale-[1.03] transition-transform duration-300">
-                        <div class="ticket opacity-75 hover:opacity-100 transition-opacity">
+                        <div class="ticket">
                             <div class="t-main">
                                 <div class="t-content">
                                     <div class="t-header">
@@ -356,7 +356,7 @@
 
                     <!-- Ticket Archive 2 -->
                     <div onclick="openPreviousEventModal('vr_room')" class="ticket-wrapper ticket-brand-cyan w-full max-w-sm cursor-pointer hover:scale-[1.03] transition-transform duration-300">
-                        <div class="ticket opacity-75 hover:opacity-100 transition-opacity">
+                        <div class="ticket">
                             <div class="t-main">
                                 <div class="t-content">
                                     <div class="t-header">
@@ -401,7 +401,7 @@
 
                     <!-- Ticket Archive 3 -->
                     <div onclick="openPreviousEventModal('robot_arm')" class="ticket-wrapper ticket-brand-orange w-full max-w-sm cursor-pointer hover:scale-[1.03] transition-transform duration-300">
-                        <div class="ticket opacity-75 hover:opacity-100 transition-opacity">
+                        <div class="ticket">
                             <div class="t-main">
                                 <div class="t-content">
                                     <div class="t-header">
@@ -459,10 +459,12 @@
             </div>
             
             <div class="p-6 overflow-y-auto space-y-6 flex-1">
-                <!-- Modal Banner Image -->
-                <div class="relative w-full h-48 sm:h-64 rounded-xl overflow-hidden border border-white/10 bg-[#121215]">
-                    <img id="modal-event-img" src="" class="w-full h-full object-cover" alt="Operation Preview">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                <!-- Modal Banner Image - Dummy blank area -->
+                <div class="relative w-full h-48 sm:h-64 rounded-xl overflow-hidden border border-white/10 bg-slate-900/60 flex items-center justify-center">
+                    <div class="text-center space-y-2">
+                        <i class="fa-solid fa-image text-slate-600 text-4xl"></i>
+                        <span class="text-xs font-mono text-slate-500 block">[ IMAGE ARCHIVE DECRYPTED ]</span>
+                    </div>
                 </div>
 
                 <div class="space-y-3">
@@ -526,7 +528,6 @@
                 tag: "Autonomous Competition",
                 date: "MARCH 18, 2026",
                 subsystem: "Core Artificial Intelligence Node",
-                image: "assets/images/maze_solver_robot.png",
                 description: "Our micromouse rover deployed complex flood-fill pathfinding matrix heuristics to navigate grid structures under 15 seconds. Engineers optimized infrared transceiver telemetry nodes, motor controller ticks, and differential steering matrices to achieve maximum angular velocity precision."
             },
             vr_room: {
@@ -534,7 +535,6 @@
                 tag: "UI/UX Laboratory Workshop",
                 date: "APRIL 10, 2026",
                 subsystem: "Virtual Interface & Graphics Core",
-                image: "assets/images/vr_room_simulation.png",
                 description: "Apprentices experienced multi-agent simulation control meshes inside immersive headset environments. The workshop covered three-dimensional digital twin representations, real-time spatial telemetry streaming pipelines, and coordinate translation mappings between simulation space and actual physical hardware actuators."
             },
             robot_arm: {
@@ -542,7 +542,6 @@
                 tag: "Kinematics & Fabrication Exhibition",
                 date: "MAY 05, 2026",
                 subsystem: "Precision Kinematics & Mechanical Array",
-                image: "assets/images/industrial_robot_arm.png",
                 description: "A demonstration of 6-degree-of-freedom robotic arms executing path pick-and-place maneuvers. Participants loaded geometric constraints into inverse kinematics matrix solvers, tuned PID tuning variables for absolute feedback loop damping, and successfully fabricated 3D physical models."
             }
         };
@@ -551,7 +550,6 @@
             const data = previousEventsData[eventId];
             if (!data) return;
 
-            document.getElementById('modal-event-img').src = data.image;
             document.getElementById('modal-event-tag').innerText = data.tag;
             document.getElementById('modal-event-title').innerText = data.title;
             document.getElementById('modal-event-date').innerText = `DEPLOYMENT DATE: ${data.date}`;
