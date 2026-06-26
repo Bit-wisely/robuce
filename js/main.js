@@ -208,19 +208,19 @@ const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
 
 if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.contains('hidden');
-        if (isHidden) {
-            mobileMenu.classList.remove('hidden');
+        const isActive = mobileMenu.classList.contains('active');
+        if (!isActive) {
+            mobileMenu.classList.add('active');
             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
         } else {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
         }
     });
 
     mobileNavBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
         });
     });

@@ -861,3 +861,48 @@ section.active-section {
 .bg-animated {
   animation: bg-drift 30s ease-in-out infinite;
 }
+
+/* Background stability for mobile scrolling/bounce */
+#bg-parallax-wrap {
+  width: 112vw !important;
+  height: 125vh !important;
+  top: -12.5vh !important;
+  left: -6vw !important;
+  position: absolute !important;
+}
+
+/* Instagram Glass Button styling */
+.instagram-glass-btn {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  color: #ff4b8b !important;
+  transition: all 0.2s ease-in-out;
+}
+.instagram-glass-btn:hover {
+  background: rgba(255, 75, 139, 0.15);
+  color: #ffffff !important;
+  border-color: rgba(255, 75, 139, 0.5);
+  box-shadow: 
+      0 8px 24px rgba(255, 75, 139, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Mobile dropdown bubble transitions */
+#mobile-menu {
+  transform-origin: top right;
+  transition: clip-path 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  clip-path: circle(0% at 90% 0%);
+  opacity: 0;
+  display: flex !important;
+  pointer-events: none;
+}
+#mobile-menu.active {
+  clip-path: circle(150% at 90% 0%);
+  opacity: 1;
+  pointer-events: auto;
+}
