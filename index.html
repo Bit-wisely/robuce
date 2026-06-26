@@ -39,6 +39,33 @@
     <!-- BACKDROP OVERLAY FOR MOBILE MENU -->
     <div id="menu-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-15 opacity-0 pointer-events-none transition-all duration-300"></div>
 
+    <!-- FUTURISTIC PAGE PRELOADER -->
+    <div id="page-loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#09090b] text-white transition-opacity duration-500">
+        <!-- SVG Bicycle Loader -->
+        <svg class="loader" viewBox="0 0 150 90" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Tires -->
+                <circle class="loader_tire" cx="35" cy="65" r="20" stroke-dasharray="125.66" />
+                <circle class="loader_tire" cx="115" cy="65" r="20" stroke-dasharray="125.66" />
+                <!-- Spokes -->
+                <path class="loader_spokes" d="M35 65 L35 45 M35 65 L35 85 M35 65 L15 65 M35 65 L55 65" stroke-dasharray="31.416" />
+                <path class="loader_spokes" d="M115 65 L115 45 M115 65 L115 85 M115 65 L95 65 M115 65 L135 65" stroke-dasharray="31.416" />
+                <!-- Frame / Body -->
+                <path class="loader_body" d="M35 65 L65 65 L82 43 L52 43 L35 65 M65 65 L52 43" stroke-dasharray="79" />
+                <!-- Seat -->
+                <path class="loader_seat" d="M52 43 L52 35 M47 35 L57 35" stroke-dasharray="5" />
+                <!-- Handlebars / Fork -->
+                <path class="loader_front" d="M115 65 L90 28" stroke-dasharray="19" />
+                <path class="loader_handlebars" d="M90 28 L82 28 M90 28 L94 22" stroke-dasharray="10" />
+                <!-- Pedals / Crank -->
+                <g class="loader_pedals-spin" transform="translate(65, 65)">
+                    <path class="loader_pedals" d="M0 0 L0 -15 M0 0 L0 15" stroke-dasharray="25.133" />
+                </g>
+            </g>
+        </svg>
+        <span id="loader-text" class="text-xs font-mono tracking-widest text-slate-400 mt-4 uppercase animate-pulse">// CONFIGURING TELEMETRY GRID...</span>
+    </div>
+
     <!-- FULL PAGE CRYSTAL CLEAR BACKGROUND WITH PARALLAX -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div id="bg-parallax-wrap" class="w-full h-full scale-105 transition-transform duration-500 ease-out relative">
@@ -377,14 +404,14 @@
                         <div class="relative">
                             <select required class="w-full bg-slate-900/60 border border-white/10 rounded px-4 py-2.5 text-white focus:outline-none focus:border-brand-pink transition-all appearance-none cursor-pointer">
                                 <option value="" disabled selected>Select Level</option>
-                                <option value="S1">S1 Module</option>
-                                <option value="S2">S2 Module</option>
-                                <option value="S3">S3 Module</option>
-                                <option value="S4">S4 Module</option>
-                                <option value="S5">S5 Module</option>
-                                <option value="S6">S6 Module</option>
-                                <option value="S7">S7 Module</option>
-                                <option value="S8">S8 Module</option>
+                                <option value="Semester 1">Semester 1</option>
+                                <option value="Semester 2">Semester 2</option>
+                                <option value="Semester 3">Semester 3</option>
+                                <option value="Semester 4">Semester 4</option>
+                                <option value="Semester 5">Semester 5</option>
+                                <option value="Semester 6">Semester 6</option>
+                                <option value="Semester 7">Semester 7</option>
+                                <option value="Semester 8">Semester 8</option>
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
                                 <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -458,16 +485,25 @@
             event.preventDefault();
             closeRegistrationForm();
             
-            showToast("Initializing telemetry calibration...");
-            
-            setTimeout(() => {
-                showToast("Uploading pilot credentials to central mainframe...");
-            }, 1200);
+            // Show page loader with submission text
+            const pageLoader = document.getElementById('page-loader');
+            const loaderText = document.getElementById('loader-text');
+            if (pageLoader) {
+                if (loaderText) loaderText.innerText = "// TELEMETRY ENROLLMENT IN PROGRESS...";
+                pageLoader.classList.remove('opacity-0', 'pointer-events-none');
+            }
 
             setTimeout(() => {
+                if (pageLoader) {
+                    pageLoader.classList.add('opacity-0', 'pointer-events-none');
+                }
                 showToast("Intake Successful! Welcome to the UCE Robotics grid.");
                 document.getElementById('enrollment-form').reset();
-            }, 2600);
+                // Reset loader text for next page reload
+                setTimeout(() => {
+                    if (loaderText) loaderText.innerText = "// CONFIGURING TELEMETRY GRID...";
+                }, 500);
+            }, 500); // Loader active for .5 seconds
         }
     </script>
 </body>

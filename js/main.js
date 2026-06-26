@@ -269,6 +269,16 @@ function highlightCurrentPage() {
     });
 }
 
+// Page loader fade out with 1-second delay
+window.addEventListener('load', () => {
+    const pageLoader = document.getElementById('page-loader');
+    if (pageLoader) {
+        setTimeout(() => {
+            pageLoader.classList.add('opacity-0', 'pointer-events-none');
+        }, 1000);
+    }
+});
+
 // Initialize Logic
 window.addEventListener('DOMContentLoaded', () => {
     initLeaves();
