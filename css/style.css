@@ -871,7 +871,7 @@ section.active-section {
   position: absolute !important;
 }
 
-/* Instagram Glass Button styling - optimized to match header background tone */
+/* Instagram Glass Button styling - optimized to match brand-pink */
 .instagram-glass-btn {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(5px);
@@ -883,7 +883,7 @@ section.active-section {
       inset 0 1px 0 rgba(255, 255, 255, 0.5),
       inset 0 -1px 0 rgba(255, 255, 255, 0.1),
       inset 0 0 10px 5px rgba(255, 255, 255, 0.15);
-  color: #cbd5e1 !important;
+  color: #ff4b8b !important;
   cursor: pointer;
   font-size: 11px;
   font-family: monospace;
@@ -898,11 +898,11 @@ section.active-section {
   gap: 8px;
 }
 .instagram-glass-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 75, 139, 0.15);
   color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 75, 139, 0.5);
   box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.15),
+      0 8px 32px rgba(255, 75, 139, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.6),
       inset 0 -1px 0 rgba(255, 255, 255, 0.2);
 }
