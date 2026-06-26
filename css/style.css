@@ -1,3 +1,8 @@
+:root {
+  --primary: #ff4b8b;
+  --trans-dur: 0.3s;
+}
+
 @property --angle-1 { syntax: "<angle>"; inherits: false; initial-value: -75deg; }
 @property --angle-2 { syntax: "<angle>"; inherits: false; initial-value: -45deg; }
 
@@ -933,12 +938,6 @@ section.active-section {
   pointer-events: auto;
 }
 
-/* Page Loader styling variables */
-:root {
-  --primary: #ff4b8b;
-  --trans-dur: 0.3s;
-}
-
 /* From Uiverse.io by fanishah */ 
 .loader {
   display: block;
@@ -995,6 +994,14 @@ section.active-section {
 
 .loader_tire {
   animation-name: bikeTire;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(var(--hue), 90%, 10%);
+    --fg: hsl(var(--hue), 90%, 90%);
+  }
 }
 
 /* Animations */
