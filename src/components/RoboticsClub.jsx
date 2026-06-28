@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import clubData from '../data/clubData.json';
+import ThreeBackground from './ThreeBackground';
 
 // Helper function to resolve icon strings to Custom Cyber SVGs
 const CyberIcon = ({ name, className = "w-6 h-6" }) => {
@@ -451,6 +452,7 @@ export default function RoboticsClub() {
 
   return (
     <div className="text-slate-300 font-sans antialiased min-h-screen flex flex-col justify-between relative z-10 select-none pb-12">
+      <ThreeBackground />
       
       {/* FLOATING NAVBAR */}
       <div className="sticky top-4 z-40 w-full max-w-6xl mx-auto px-4">
