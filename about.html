@@ -76,7 +76,6 @@
                 <a href="team.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
                 <a href="events.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
                 <a href="certificates.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
-                <a href="index.html#membership" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Membership</a>
             </nav>
 
             <!-- Instagram handle & Join Club Action -->
@@ -85,10 +84,10 @@
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span>@uce_robotics</span>
                 </a>
-                <a href="index.html#membership" class="neu-button hidden sm:inline-flex">
+                <button onclick="openRegistrationModalFromOtherPage()" class="neu-button hidden sm:inline-flex">
                     <i class="fa-solid fa-credit-card"></i>
                     <span>Join Club</span>
-                </a>
+                </button>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none hover:text-brand-orange transition-colors p-2" aria-label="Toggle Menu">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -102,7 +101,6 @@
             <a href="team.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Team</a>
             <a href="events.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Events</a>
             <a href="certificates.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificate</a>
-            <a href="index.html#membership" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Membership</a>
             
             <div class="flex flex-col gap-3 pt-2 sm:hidden">
                 <a href="https://instagram.com/uce_robotics" target="_blank" class="flex items-center justify-center instagram-glass-btn">
@@ -110,9 +108,9 @@
                     <span>@uce_robotics</span>
                 </a>
                 <div class="button-wrap btn-neutral w-full">
-                    <a href="index.html#membership" class="w-full">
+                    <button onclick="openRegistrationModalFromOtherPage()" class="w-full">
                         <span><i class="fa-solid fa-credit-card"></i> Join Club</span>
-                    </a>
+                    </button>
                     <div class="button-shadow"></div>
                 </div>
             </div>
@@ -193,5 +191,10 @@
 
     <!-- Global Javascript Helper -->
     <script src="js/main.js"></script>
+    <script>
+        function openRegistrationModalFromOtherPage() {
+            window.location.href = "index.html#enroll";
+        }
+    </script>
 </body>
 </html>

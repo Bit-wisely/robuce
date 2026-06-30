@@ -1125,3 +1125,36 @@ section.active-section {
     transform: rotate(1turn);
   }
 }
+
+/* ================= HERO UTILITY ANIMATIONS (Phase 4) ================= */
+
+/* fadeUp keyframes and classes */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Animation Delays */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+
+/* RotatingText transition */
+#rotating-text-element {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
+}
+

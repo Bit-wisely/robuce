@@ -269,10 +269,152 @@ function highlightCurrentPage() {
     });
 }
 
+// ================= DYNAMIC WIDGETS ANIMATIONS =================
+
+// CountUp Logic
+function initCountUp() {
+    const countElements = document.querySelectorAll('[data-count-to]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const targetVal = parseInt(el.getAttribute('data-count-to'), 10);
+                const suffix = el.getAttribute('data-count-suffix') || '';
+                let current = 0;
+                const duration = 2000; // 2 seconds
+                const start = performance.now();
+                
+                function updateCount(timestamp) {
+                    const progress = Math.min((timestamp - start) / duration, 1);
+                    current = Math.floor(progress * targetVal);
+                    el.innerText = current + suffix;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        el.innerText = targetVal + suffix;
+                    }
+                }
+                
+                requestAnimationFrame(updateCount);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    countElements.forEach(el => observer.observe(el));
+}
+
+// RotatingText Logic
+function initRotatingText() {
+    const el = document.getElementById('rotating-text-element');
+    if (!el) return;
+    
+    const items = ['robots', 'systems', 'drones', 'circuits', 'code', 'future'];
+    let index = 0;
+    
+    setInterval(() => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(10px)';
+        
+        setTimeout(() => {
+            index = (index + 1) % items.length;
+            el.innerText = items[index];
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 300);
+    }, 2500);
+}
+
+// BlurText Logic
+function initBlurText() {
+    const container = document.getElementById('blur-text-target');
+    if (!container) return;
+    
+    const text = container.innerText;
+    container.innerHTML = '';
+    
+    const words = text.split(' ');
+    words.forEach((word, wordIdx) => {
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'inline-block whitespace-nowrap mr-2';
+        
+        const letters = word.split('');
+        letters.forEach((char, charIdx) => {
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'inline-block transition-all duration-700 opacity-0 filter blur-[10px] translate-y-2';
+            letterSpan.innerText = char;
+            
+            // Sequential delay for each character
+            const delay = (wordIdx * 120) + (charIdx * 40);
+            setTimeout(() => {
+                letterSpan.style.opacity = '1';
+                letterSpan.style.filter = 'blur(0px)';
+                letterSpan.style.transform = 'translateY(0)';
+            }, delay + 100);
+            
+            wordSpan.appendChild(letterSpan);
+        });
+        
+        container.appendChild(wordSpan);
+    });
+}
+
+// Hero light-to-dark transition scroll observer (Phase 1 environment blend)
+function initScrollThemeTransition() {
+    const bgContainer = document.getElementById('hero-bg-container');
+    const bgOverlay = document.getElementById('hero-bg-overlay');
+    const heroSec = document.getElementById('home');
+    const mainNav = document.querySelector('header');
+    
+    if (!bgContainer || !heroSec) return;
+    
+    window.addEventListener('scroll', () => {
+        const heroHeight = heroSec.offsetHeight;
+        const scrollPos = window.scrollY;
+        
+        // As user scrolls past hero section, blend video into deep black to suit standard layout dark themes
+        const progress = Math.min(scrollPos / (heroHeight * 0.8), 1);
+        
+        bgOverlay.style.backgroundColor = `rgba(9, 9, 11, ${progress})`;
+        
+        if (progress > 0.5) {
+            bgContainer.style.backgroundColor = '#09090b';
+            if (mainNav) {
+                mainNav.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+            }
+        } else {
+            bgContainer.style.backgroundColor = '#eeeeee';
+            if (mainNav) {
+                mainNav.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+            }
+        }
+    });
+}
+
+// External page modal redirect observer trigger helper
+function checkModalRedirectHash() {
+    if (window.location.hash === '#enroll') {
+        // Clear hash so page doesn't keep scrolling
+        history.replaceState(null, null, 'index.html');
+        // Open registration form
+        setTimeout(() => {
+            if (typeof openRegistrationForm === 'function') {
+                openRegistrationForm();
+            }
+        }, 300);
+    }
+}
 
 // Initialize Logic
 window.addEventListener('DOMContentLoaded', () => {
     initLeaves();
     initBirds();
     highlightCurrentPage();
+    initCountUp();
+    initRotatingText();
+    initBlurText();
+    initScrollThemeTransition();
+    checkModalRedirectHash();
 });

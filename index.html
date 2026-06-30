@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROBOTICS CLUB UCE // Autonomous Innovation</title>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -26,7 +30,7 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                         mono: ['monospace', 'Courier New', 'Courier']
                     }
                 }
@@ -42,13 +46,13 @@
 
 
     <!-- FULL PAGE CRYSTAL CLEAR BACKGROUND WITH PARALLAX -->
-    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-black">
-        <video autoPlay muted loop playsInline aria-hidden="true" class="w-full h-full object-cover object-center opacity-80">
-            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4" type="video/mp4"/>
+    <div id="hero-bg-container" class="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#eeeeee] transition-colors duration-500">
+        <video id="hero-bg-video" autoPlay muted loop playsInline aria-hidden="true" class="w-full h-full object-cover object-center transition-opacity duration-700">
+            <source src="https://cdn.sceneai.art/Hero%20Section%20Video/c653421c-6cd9-472a-811a-b833dd320372.mp4" type="video/mp4"/>
         </video>
-        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60 pointer-events-none"></div>
-        <div class="grid-bg"></div>
+        <!-- Overlay is dynamic based on scroll or section to blend into the rest of the dark site design -->
+        <div id="hero-bg-overlay" class="absolute inset-0 bg-transparent transition-all duration-500"></div>
+        <div class="grid-bg opacity-[0.15]"></div>
     </div>
 
     <!-- BIRD EMITTER LAYER -->
@@ -76,7 +80,6 @@
                 <a href="team.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
                 <a href="events.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
                 <a href="certificates.html" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
-                <a href="index.html#membership" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Membership</a>
             </nav>
 
             <!-- Instagram handle & Join Club Action -->
@@ -85,10 +88,10 @@
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span>@uce_robotics</span>
                 </a>
-                <a href="#membership" class="neu-button hidden sm:inline-flex">
+                <button onclick="openRegistrationForm()" class="neu-button hidden sm:inline-flex">
                     <i class="fa-solid fa-credit-card"></i>
                     <span>Join Club</span>
-                </a>
+                </button>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none hover:text-brand-orange transition-colors p-2" aria-label="Toggle Menu">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -102,7 +105,6 @@
             <a href="team.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Team</a>
             <a href="events.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Events</a>
             <a href="certificates.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificate</a>
-            <a href="index.html#membership" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Membership</a>
             
             <div class="flex flex-col gap-3 pt-2 sm:hidden">
                 <a href="https://instagram.com/uce_robotics" target="_blank" class="flex items-center justify-center instagram-glass-btn">
@@ -110,9 +112,9 @@
                     <span>@uce_robotics</span>
                 </a>
                 <div class="button-wrap btn-neutral w-full">
-                    <a href="#membership" class="w-full">
+                    <button onclick="openRegistrationForm()" class="w-full">
                         <span><i class="fa-solid fa-credit-card"></i> Join Club</span>
-                    </a>
+                    </button>
                     <div class="button-shadow"></div>
                 </div>
             </div>
@@ -124,198 +126,106 @@
 
         <!-- ================= HOME / HERO SECTION ================= -->
         <section id="home" class="scroll-mt-28 py-10 flex flex-col justify-center items-start space-y-6 relative active-section">
-            <!-- Left Info Block -->
-            <div class="space-y-6 max-w-4xl">
-                <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/15 rounded-full backdrop-blur-md shadow-lg">
-                    <span class="w-2.5 h-2.5 rounded-full bg-brand-pink animate-pulse"></span>
-                    <span class="font-mono text-xs sm:text-sm font-bold text-brand-pink tracking-widest uppercase">UCE ROBOTICS LABORATORY STATION</span>
+        <!-- ================= HOME / HERO SECTION ================= -->
+        <section id="home" class="scroll-mt-28 min-h-[85vh] flex flex-col justify-end items-start pb-12 pt-20 relative active-section">
+            <!-- Left Info Block - Bottom Aligned with FadeUp Animations -->
+            <div class="space-y-6 max-w-4xl w-full text-slate-900 z-10 transition-all duration-500">
+                <!-- Version Pill (Phase 3) with fadeUp animate-delay-100 -->
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-black/10 border border-black/15 rounded-full backdrop-blur-md shadow-sm transition-all hover:scale-105 duration-300 opacity-0 translate-y-6 animate-fade-up animate-delay-100">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+                    <span class="font-mono text-xs font-black text-brand-orange tracking-widest uppercase">v2.0.4 - ACTIVE PLATFORM</span>
                 </div>
-                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                    Don't just watch the future happen. <br>
-                    <span class="gradient-text-pink-orange font-mono">Build it.</span> <br>
-                    <span class="text-2xl sm:text-4xl font-bold text-slate-200 mt-2 block">Welcome to UCE Robotics.</span>
+                
+                <!-- Headline (Phase 3) with RotatingText & BlurText. Animate-delay-200 -->
+                <h1 class="text-4xl sm:text-7xl font-extrabold tracking-tight text-slate-950 leading-tight opacity-0 translate-y-6 animate-fade-up animate-delay-200">
+                    <!-- BlurText target container -->
+                    <span id="blur-text-target" class="block font-sans select-none tracking-tight pr-4">Don't just watch the future happen.</span>
+                    <span class="block mt-2 text-2xl sm:text-5xl font-light text-slate-800">
+                        We build <span id="rotating-text-element" class="font-mono font-black text-brand-pink transition-all duration-300 inline-block drop-shadow-[0_2px_10px_rgba(255,75,139,0.2)]">robots</span>
+                    </span>
                 </h1>
-                <p class="text-slate-300 leading-relaxed max-w-xl text-sm sm:text-base">
+                
+                <!-- Subheadline with animate-delay-300 -->
+                <p class="text-slate-700 leading-relaxed max-w-2xl text-base sm:text-lg opacity-0 translate-y-6 animate-fade-up animate-delay-300">
                     Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
                 </p>
                 
-                <!-- Glassmorphic Button layout -->
-                <div class="flex flex-wrap items-center gap-4 pt-2">
-                    <div class="button-wrap btn-pink">
-                        <button onclick="window.location.href='events.html'">
-                            <span>Upcoming Activities</span>
-                        </button>
-                        <div class="button-shadow"></div>
-                    </div>
-                    <div class="button-wrap btn-orange">
-                        <button onclick="window.location.href='#membership'">
-                            <span>Get 4-Year Pass</span>
-                        </button>
-                        <div class="button-shadow"></div>
-                    </div>
+                <!-- Action CTA button (Phase 3) with hover animations & animate-delay-400 -->
+                <div class="flex flex-wrap items-center gap-4 pt-2 opacity-0 translate-y-6 animate-fade-up animate-delay-400">
+                    <button onclick="openRegistrationForm()" class="group relative overflow-hidden rounded-xl bg-gradient-to-r from-brand-orange to-brand-pink p-px font-bold text-white shadow-lg active:scale-95 transition-transform duration-300">
+                        <div class="relative bg-white text-slate-900 group-hover:bg-transparent group-hover:text-white px-8 py-4 rounded-[11px] transition-all duration-300">
+                            <span class="relative flex items-center justify-center gap-2 text-sm uppercase tracking-widest font-mono">
+                                Get UCE Access Pass
+                                <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1">
+                                    <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </button>
+                    <button onclick="window.location.href='events.html'" class="px-8 py-4 bg-black/5 hover:bg-black/10 text-slate-800 hover:text-slate-950 font-bold uppercase tracking-wider text-xs border border-black/10 rounded-xl transition-all duration-300">
+                        Review Activities
+                    </button>
                 </div>
 
-                <!-- Stats widget container -->
-                <div class="grid grid-cols-3 gap-6 pt-10 border-t border-brand-border font-mono max-w-lg">
+                <!-- Stats widget container with CountUp integration (Phase 3) with animate-delay-500 -->
+                <div class="grid grid-cols-3 gap-6 pt-10 border-t border-black/10 font-mono max-w-2xl opacity-0 translate-y-6 animate-fade-up animate-delay-500">
                     <div>
-                        <span class="text-3xl font-bold text-white block">15+</span>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Workshops & Bootcamps Conducted</span>
+                        <!-- Stat block enlarged (Request 6) -->
+                        <span class="text-4xl sm:text-5xl font-black text-slate-950 block" data-count-to="15" data-count-suffix="+">0+</span>
+                        <span class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mt-1 block">Workshops Conducted</span>
                     </div>
                     <div>
-                        <span class="text-3xl font-bold text-white block">5+</span>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Annual Flagship Events / Hackathons</span>
+                        <span class="text-4xl sm:text-5xl font-black text-slate-950 block" data-count-to="5" data-count-suffix="+">0+</span>
+                        <span class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mt-1 block">Flagship Events</span>
                     </div>
                     <div>
-                        <span class="text-3xl font-bold text-white block">250+</span>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Certificates Issued This Year</span>
+                        <span class="text-4xl sm:text-5xl font-black text-slate-950 block" data-count-to="250" data-count-suffix="+">0+</span>
+                        <span class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mt-1 block">Credentials Issued</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= MEMBERSHIP SECTION ================= -->
-        <section id="membership" class="scroll-mt-28 py-12 flex flex-col justify-center items-center text-center space-y-10 active-section">
+        <!-- ================= SUGGESTIONS SECTION ================= -->
+        <section id="suggestions" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
             <div class="max-w-3xl space-y-4">
-                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">05 / REGISTER MEMBERSHIP</span>
-                <h2 class="text-4xl font-extrabold text-white">Choose Robotics Club Membership</h2>
-                <p class="text-slate-300 leading-relaxed max-w-xl mx-auto">
-                    Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
+                <span class="text-xs font-mono text-brand-pink uppercase tracking-widest block">02 / STUDENT HUB</span>
+                <h2 class="text-4xl font-extrabold text-white">Share Your Ideas & Suggestions</h2>
+                <p class="text-slate-300 leading-relaxed max-w-xl">
+                    Have a cool workshop topic in mind, a gaming event proposal, or feedback on past events? Tell us what you want to see next in Robotics Club UCE!
                 </p>
             </div>
 
-            <!-- Centered Uiverse 3D Membership Card -->
-            <div class="flex items-center justify-center py-6 w-full">
-                <div class="group relative w-80">
-                  <div
-                    class="relative overflow-hidden rounded-2xl bg-[#24242b] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-brand-pink/25 border border-white/20"
-                  >
-                    <div
-                      class="relative rounded-2xl bg-[#24242b] p-6"
-                    >
-                      <div
-                        class="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-brand-pink/20 to-brand-orange/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
-                      ></div>
-                      <div
-                        class="absolute -bottom-16 -right-16 h-32 w-32 rounded-full bg-gradient-to-br from-brand-orange/20 to-brand-pink/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
-                      ></div>
-
-                      <div
-                        class="absolute -right-[1px] -top-[1px] overflow-hidden rounded-tr-2xl"
-                      >
-                        <div
-                          class="absolute h-20 w-20 bg-gradient-to-r from-brand-pink to-brand-orange"
-                        ></div>
-                        <div class="absolute h-20 w-20 bg-slate-950/90"></div>
-                        <div
-                          class="absolute right-0 top-[22px] h-[2px] w-[56px] rotate-45 bg-gradient-to-r from-brand-pink to-brand-orange"
-                        ></div>
-                        <span
-                          class="absolute right-1 top-1 text-[10px] font-semibold text-white"
-                          >POPULAR</span
-                        >
-                      </div>
-
-                      <div class="relative text-left">
-                        <h3 class="text-base font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-brand-pink via-brand-orange to-[#ff8e53] drop-shadow-[0_0_12px_rgba(255,75,139,0.95)]">
-                          MEMBER PASS
-                        </h3>
-                        <div class="mt-3 flex items-baseline gap-2">
-                          <span class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00f5ff] via-white to-brand-cyan drop-shadow-[0_0_15px_rgba(0,245,255,0.95)]">₹150</span>
-                          <span class="text-xs font-mono font-bold text-white tracking-wider">/ 4 YEARS</span>
+            <div class="max-w-xl w-full mx-auto p-6 glass-panel rounded-lg shadow-2xl space-y-6">
+                <form id="suggestion-form" onsubmit="submitSuggestionForm(event);" class="space-y-4 font-mono text-xs text-slate-300">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="block text-[9px] text-brand-pink uppercase">Name (Optional)</label>
+                            <input type="text" id="suggest-name" placeholder="e.g. Adhithyan" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
                         </div>
-                        <p class="mt-3 text-xs text-slate-300 font-mono leading-relaxed">
-                          Welcome to the collegiate engineering hub. We build, program, and iterate autonomous machines, hardware-in-the-loop control scripts, and multi-agent coordination frameworks designed for real-world impact.
-                        </p>
-                      </div>
-
-                      <div class="relative mt-6 space-y-4 text-left">
-                        <div class="flex items-start gap-3">
-                          <div
-                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
-                          >
-                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
-                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-                            </svg>
-                          </div>
-                          <div>
-                            <p class="text-sm font-medium text-white">Unlimited Lab Projects</p>
-                            <p class="text-xs text-slate-400">Create as many as you need</p>
-                          </div>
+                        <div class="space-y-1">
+                            <label class="block text-[9px] text-brand-pink uppercase">Reg Number (Optional)</label>
+                            <input type="text" id="suggest-reg" placeholder="e.g. UCE24CS035" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
                         </div>
-
-                        <div class="flex items-start gap-3">
-                          <div
-                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
-                          >
-                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
-                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-                            </svg>
-                          </div>
-                          <div>
-                            <p class="text-sm font-medium text-white">Advanced Sensor Access</p>
-                            <p class="text-xs text-slate-400">Detailed insights and reports</p>
-                          </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                          <div
-                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
-                          >
-                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
-                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-                            </svg>
-                          </div>
-                          <div>
-                            <p class="text-sm font-medium text-white">High-Performance Compute</p>
-                            <p class="text-xs text-slate-400">Use remote nodes and resources</p>
-                          </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                          <div
-                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-pink/10"
-                          >
-                            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-brand-pink">
-                              <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-                            </svg>
-                          </div>
-                          <div>
-                            <p class="text-sm font-medium text-white">24/7 Mentorship Support</p>
-                            <p class="text-xs text-slate-400">Get help from lead operators</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="relative mt-8">
-                        <button
-                          onclick="openRegistrationForm()"
-                          class="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-brand-orange to-[#ff8e53] p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
-                        >
-                          <div
-                            class="relative rounded-xl bg-slate-950/50 px-4 py-3 transition-colors group-hover/btn:bg-transparent"
-                          >
-                            <span class="relative flex items-center justify-center gap-2">
-                              Join Club
-                              <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1">
-                                <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-                              </svg>
-                            </span>
-                          </div>
-                        </button>
-                      </div>
-
-                      <div class="mt-4 flex items-center justify-center gap-2">
-                        <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-slate-400">
-                          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-                        </svg>
-                        <span class="text-xs font-medium text-slate-400">4-Year University Member Access</span>
-                      </div>
                     </div>
-                  </div>
-                </div>
+                    <div class="space-y-1">
+                        <label class="block text-[9px] text-brand-pink uppercase">Suggestion Category</label>
+                        <select id="suggest-category" class="w-full bg-black/80 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
+                            <option value="workshop">Technical Workshop Topic</option>
+                            <option value="gaming">Gaming/Esports Tournament</option>
+                            <option value="coding">Coding/Hackathon Challenge</option>
+                            <option value="other">General Idea</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-[9px] text-brand-pink uppercase">Your Suggestion</label>
+                        <textarea id="suggest-text" rows="4" placeholder="Describe your idea or what events you want us to conduct..." class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink resize-none" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 mt-2 bg-brand-pink/10 hover:bg-brand-pink/20 border border-brand-pink/30 hover:border-brand-pink rounded text-brand-pink font-bold uppercase transition-all tracking-wider text-center block">
+                        Submit Idea
+                    </button>
+                </form>
             </div>
-            
-            <span class="text-[10px] text-slate-500 uppercase tracking-widest font-mono">₹150 / 4-Year University member fee</span>
         </section>
 
     </main>
@@ -462,6 +372,12 @@
             closeRegistrationForm();
             showToast("Intake Successful! Welcome to the UCE Robotics grid.");
             document.getElementById('enrollment-form').reset();
+        }
+
+        function submitSuggestionForm(event) {
+            event.preventDefault();
+            showToast("System Logged: Suggestion recorded successfully. Thank you!");
+            document.getElementById('suggestion-form').reset();
         }
     </script>
 </body>
