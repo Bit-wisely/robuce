@@ -84,9 +84,9 @@
 
             <!-- Instagram handle & Join Club Action -->
             <div class="flex items-center gap-2 sm:gap-4 pointer-events-auto">
-                <a href="https://instagram.com/uce_robotics" target="_blank" class="hidden sm:flex items-center instagram-glass-btn" title="Follow us on Instagram">
+                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="hidden sm:flex items-center instagram-glass-btn" title="Follow us on Instagram">
                     <i class="fa-brands fa-instagram text-sm"></i>
-                    <span>@uce_robotics</span>
+                    <span>@roboticsclubuce</span>
                 </a>
                 <button onclick="openRegistrationForm()" class="neu-button hidden sm:inline-flex">
                     <i class="fa-solid fa-credit-card"></i>
@@ -107,9 +107,9 @@
             <a href="certificates.html" class="mobile-nav-btn text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5">Certificate</a>
             
             <div class="flex flex-col gap-3 pt-2 sm:hidden">
-                <a href="https://instagram.com/uce_robotics" target="_blank" class="flex items-center justify-center instagram-glass-btn">
+                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center justify-center instagram-glass-btn">
                     <i class="fa-brands fa-instagram text-sm"></i>
-                    <span>@uce_robotics</span>
+                    <span>@roboticsclubuce</span>
                 </a>
                 <div class="button-wrap btn-neutral w-full">
                     <button onclick="openRegistrationForm()" class="w-full">
@@ -152,18 +152,11 @@
                 
                 <!-- Action CTA button (Phase 3) with hover animations & animate-delay-400 -->
                 <div class="flex flex-wrap items-center gap-4 pt-2 opacity-0 translate-y-6 animate-fade-up animate-delay-400">
-                    <button onclick="openRegistrationForm()" class="group relative overflow-hidden rounded-xl bg-gradient-to-r from-brand-orange to-brand-pink p-px font-bold text-white shadow-lg active:scale-95 transition-transform duration-300">
-                        <div class="relative bg-white text-slate-900 group-hover:bg-transparent group-hover:text-white px-8 py-4 rounded-[11px] transition-all duration-300">
-                            <span class="relative flex items-center justify-center gap-2 text-sm uppercase tracking-widest font-mono">
-                                Get UCE Access Pass
-                                <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1">
-                                    <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-                                </svg>
-                            </span>
-                        </div>
-                    </button>
-                    <button onclick="window.location.href='events.html'" class="px-8 py-4 bg-black/5 hover:bg-black/10 text-slate-800 hover:text-slate-950 font-bold uppercase tracking-wider text-xs border border-black/10 rounded-xl transition-all duration-300">
-                        Review Activities
+                    <a href="events.html" class="px-6 py-3.5 glass-btn rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
+                        <span>Upcoming Activities</span>
+                    </a>
+                    <button onclick="openRegistrationForm()" class="px-6 py-3.5 glass-btn-pink rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
+                        <span>Get 4-Year Pass</span>
                     </button>
                 </div>
 
@@ -187,11 +180,11 @@
         </section>
 
         <!-- ================= SUGGESTIONS SECTION ================= -->
-        <section id="suggestions" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
-            <div class="max-w-3xl space-y-4">
+        <section id="suggestions" class="scroll-mt-28 py-16 flex flex-col items-center justify-center space-y-12 active-section">
+            <div class="max-w-3xl space-y-4 text-center">
                 <span class="text-xs font-mono text-brand-pink uppercase tracking-widest block">02 / STUDENT HUB</span>
                 <h2 class="text-4xl font-extrabold text-white">Share Your Ideas & Suggestions</h2>
-                <p class="text-slate-300 leading-relaxed max-w-xl">
+                <p class="text-slate-300 leading-relaxed max-w-xl mx-auto">
                     Have a cool workshop topic in mind, a gaming event proposal, or feedback on past events? Tell us what you want to see next in Robotics Club UCE!
                 </p>
             </div>
@@ -370,7 +363,7 @@
         function submitEnrollmentForm(event) {
             event.preventDefault();
             closeRegistrationForm();
-            showToast("Intake Successful! Welcome to the UCE Robotics grid.");
+            showToast("Registrations are closed. Reopening when new 1st year students arrive!");
             document.getElementById('enrollment-form').reset();
         }
 
